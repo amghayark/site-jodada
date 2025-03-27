@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+  <html lang="ar" dir="rtl">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تطبيق الجذاذات التعليمية</title>
+  <meta name="description" content="تطبيق جذاذات تعليمية لدعم أساتذة اللغة العربية" />
+  
+  <!-- خط Cairo -->
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet" />
+  
+  <!-- مكتبة تأثيرات الأنيميشن -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- ملف التنسيقات (CSS) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- شاشة البداية -->
+    <section id="start-view" class="view active animate__animated animate__fadeIn">
+      <header>
+        <img src="R.png" alt="شعار المدرسة" id="logo" />
+        <h1>المدرسة العليا للتربية والتكوين - أكادير</h1>
+      </header>
+      <p class="dev-info">تم تطوير هذا التطبيق من طرف الطالب خالد أمغير</p>
+      <button id="start-button" class="btn-primary">
+        <i class="fas fa-play"></i> بدأ
+      </button>
+    </section>
+
+    <!-- شاشة المستويات -->
+    <section id="levels-view" class="view animate__animated">
+      <h2>اختر المستوى</h2>
+      <div id="levels-container" class="button-container">
+        <!-- أزرار المستويات سيتم إضافتها هنا -->
+      </div>
+      <button id="back-to-start" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> رجوع
+      </button>
+    </section>
+
+    <!-- شاشة الاختيارات: دلائل أو جذاذات -->
+    <section id="level-options-view" class="view animate__animated">
+      <h2><span id="selected-level-title"></span> - اختر نوع المورد</h2>
+      <button id="teacher-guides-option" class="btn-primary">
+        <i class="fas fa-chalkboard-teacher"></i> دلائل الأستاذ
+      </button>
+      <button id="lesson-guides-option" class="btn-primary">
+        <i class="fas fa-book"></i> جذاذات الدروس
+      </button>
+      <button id="back-to-levels" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> رجوع
+      </button>
+    </section>
+
+    <!-- شاشة الخيارات الفرعية -->
+    <section id="sub-options-view" class="view animate__animated">
+      <h2><span id="selected-sub-title"></span></h2>
+      <div id="sub-options-container" class="button-container">
+        <!-- أزرار الجذاذات أو دلائل الأستاذ سيتم إضافتها هنا -->
+      </div>
+      <button id="back-to-options" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> رجوع
+      </button>
+    </section>
+
+    <!-- شاشة عرض ملف PDF -->
+    <section id="pdf-view" class="view animate__animated">
+      <h2>عرض الملف - <span id="selected-pdf-title"></span></h2>
+      <div id="pdf-loader" class="loader" style="display: none;">تحميل...</div>
+      <embed id="lesson-pdf" type="application/pdf" width="100%" height="600px" />
+      <button id="back-to-sub-options" class="btn-secondary">
+        <i class="fas fa-arrow-left"></i> رجوع
+      </button>
+    </section>
+  </div>
+
+  <!-- أضف مكتبة الأيقونات FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
