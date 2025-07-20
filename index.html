@@ -1,83 +1,491 @@
 <!DOCTYPE html>
-  <html lang="ar" dir="rtl">
-  <head>
+<html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تطبيق الجذاذات التعليمية</title>
-  <meta name="description" content="تطبيق جذاذات تعليمية لدعم أساتذة اللغة العربية" />
-  
-  <!-- خط Cairo -->
-  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet" />
-  
-  <!-- مكتبة تأثيرات الأنيميشن -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <title>Khalid Podcast – خالد بودكاست</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Inlined CSS for Blogger -->
+  <style>
+/* الخطوط */
+body, h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+  font-family: 'Tajawal', 'Poppins', Arial, sans-serif;
+}
 
-  <!-- ملف التنسيقات (CSS) -->
-  <link rel="stylesheet" href="style.css" />
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #222;
+  direction: rtl;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav a {
+  color: #222;
+  text-decoration: none;
+  margin: 0 0.7rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav a:hover {
+  color: #4DB6AC;
+}
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-blue {
+  background: #4DB6AC;
+  color: #fff;
+}
+.btn-blue:hover {
+  background: #388e7c;
+}
+.btn-orange {
+  background: #FFA726;
+  color: #fff;
+}
+.btn-orange:hover {
+  background: #fb8c00;
+}
+.btn-lg {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+}
+
+.hero {
+  background: linear-gradient(120deg, #4DB6AC 60%, #81C784 100%);
+  color: #fff;
+  padding: 4rem 0 2.5rem 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: 3rem 0 2rem 0;
+}
+.bg-light {
+  background: #f1f7f6;
+}
+.section h2 {
+  color: #4DB6AC;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.section p, .section ul, .section table {
+  font-size: 1.1rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+th, td {
+  padding: 0.9rem 0.7rem;
+  text-align: center;
+}
+th {
+  background: #4DB6AC;
+  color: #fff;
+  font-weight: bold;
+}
+td {
+  border-bottom: 1px solid #e0e0e0;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+.video-section {
+  text-align: center;
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-bottom: 1rem;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(77,182,172,0.08);
+}
+.video-caption {
+  color: #666;
+  font-size: 1rem;
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(77,182,172,0.04);
+}
+.faq-item strong {
+  color: #4DB6AC;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.contact-section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.contact-form input, .contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #b2dfdb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+}
+.contact-form textarea {
+  min-height: 90px;
+}
+.contact-form button {
+  align-self: center;
+  min-width: 120px;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+.contact-links a {
+  color: #4DB6AC;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-links a:hover {
+  color: #FFA726;
+}
+
+.footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0 1rem 0;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+/* مساهم الآن section */
+.contribute-section {
+  text-align: center;
+}
+.btn-lg {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  margin: 1.2rem 0 0.5rem 0;
+}
+.contribute-caption {
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .header-flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero h1 {
+    font-size: 1.3rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+  }
+  .container {
+    width: 98%;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    padding: 2.5rem 0 1.5rem 0;
+  }
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn, .btn-lg {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+  th, td {
+    padding: 0.5rem 0.2rem;
+    font-size: 0.95rem;
+  }
+  .faq-item {
+    padding: 0.7rem 0.5rem;
+  }
+  .contact-section {
+    padding: 0 0.2rem;
+  }
+  .video-wrapper {
+    padding-bottom: 60%;
+  }
+}
+  </style>
+  <link rel="icon" type="image/png" href="22.png" />
 </head>
 <body>
-  <div id="app">
-    <!-- شاشة البداية -->
-    <section id="start-view" class="view active animate__animated animate__fadeIn">
-      <header>
-        <img src="R.png" alt="شعار المدرسة" id="logo" />
-        <h1>المدرسة العليا للتربية والتكوين - أكادير</h1>
-      </header>
-      <p class="dev-info">تم تطوير هذا التطبيق من طرف الطالب خالد أمغير</p>
-      <button id="start-button" class="btn-primary">
-        <i class="fas fa-play"></i> بدأ
-      </button>
-    </section>
-
-    <!-- شاشة المستويات -->
-    <section id="levels-view" class="view animate__animated">
-      <h2>اختر المستوى</h2>
-      <div id="levels-container" class="button-container">
-        <!-- أزرار المستويات سيتم إضافتها هنا -->
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-flex">
+      <div class="logo">
+        <span>🎙️</span>
+        <span>Khalid Podcast – خالد بودكاست</span>
       </div>
-      <button id="back-to-start" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> رجوع
-      </button>
-    </section>
+      <nav class="nav">
+        <a href="#about">عن المشروع</a>
+        <a href="#budget">الميزانية</a>
+        <a href="#rewards">المكافآت</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+      <a href="#contribute" class="btn btn-orange">ساهم الآن</a>
+    </div>
+  </header>
 
-    <!-- شاشة الاختيارات: دلائل أو جذاذات -->
-    <section id="level-options-view" class="view animate__animated">
-      <h2><span id="selected-level-title"></span> - اختر نوع المورد</h2>
-      <button id="teacher-guides-option" class="btn-primary">
-        <i class="fas fa-chalkboard-teacher"></i> دلائل الأستاذ
-      </button>
-      <button id="lesson-guides-option" class="btn-primary">
-        <i class="fas fa-book"></i> جذاذات الدروس
-      </button>
-      <button id="back-to-levels" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> رجوع
-      </button>
-    </section>
-
-    <!-- شاشة الخيارات الفرعية -->
-    <section id="sub-options-view" class="view animate__animated">
-      <h2><span id="selected-sub-title"></span></h2>
-      <div id="sub-options-container" class="button-container">
-        <!-- أزرار الجذاذات أو دلائل الأستاذ سيتم إضافتها هنا -->
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>فهم وبساطة – بودكاست باللهجة المغربية كيشرح أعقد الأفكار بطريقة مفهومة وسهلة.</h1>
+      <p>Khalid Podcast - خالد بودكاست هو مشروع باش نبسطوا الفلسفة، علم النفس، والأخبار اللي تهم الشباب المغربي… بالدارجة وبأسلوب قريب للقلب.</p>
+      <div class="hero-buttons">
+        <a href="#video" class="btn btn-blue">🎥 شاهد الفيديو التعريفي</a>
+        <a href="#contribute" class="btn btn-orange">💰 ساهم الآن</a>
       </div>
-      <button id="back-to-options" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> رجوع
-      </button>
-    </section>
+    </div>
+  </section>
 
-    <!-- شاشة عرض ملف PDF -->
-    <section id="pdf-view" class="view animate__animated">
-      <h2>عرض الملف - <span id="selected-pdf-title"></span></h2>
-      <div id="pdf-loader" class="loader" style="display: none;">تحميل...</div>
-      <embed id="lesson-pdf" type="application/pdf" width="100%" height="600px" />
-      <button id="back-to-sub-options" class="btn-secondary">
-        <i class="fas fa-arrow-left"></i> رجوع
-      </button>
-    </section>
-  </div>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>علاش هاد المشروع؟</h2>
+      <p>أنا خالد، شاب مغربي كيآمن بقيمة المعرفة. فوسط عالم فيه الضجيج والمعلومة السطحية، بغيت نخلق مساحة نحكيو فيها على المواضيع المهمة بطريقة مبسطة: الفلسفة، النفس، والمجتمع… بالدارجة المغربية باش الكل يفهم.</p>
+    </div>
+  </section>
 
-  <!-- أضف مكتبة الأيقونات FontAwesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="script.js"></script>
+  <!-- Budget Section -->
+  <section id="budget" class="section bg-light">
+    <div class="container">
+      <h2>شنو غادي ندير بالدعم ديالكم؟</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>الحاجة</th>
+              <th>التكلفة</th>
+              <th>لماذا؟</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>كاميرا احترافية او هاتف بجودة كاميرة عالية</td>
+              <td>5,000 درهم</td>
+              <td>باش نصور الفيديو بجودة عالية</td>
+            </tr>
+            <tr>
+              <td>ميكروفون + إضاءة + حامل</td>
+              <td>800 درهم</td>
+              <td>الصوت والصورة يكونو واضحين</td>
+            </tr>
+            <tr>
+              <td>برامج المونتاج</td>
+              <td>1,200 درهم</td>
+              <td>إنتاج فيديوهات بجودة احترافية</td>
+            </tr>
+            <tr>
+              <td>التسويق والترويج</td>
+              <td>1,000 درهم</td>
+              <td>باش نوصلو لأكبر عدد ممكن</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="section">
+    <div class="container video-section">
+      <h2>الفيديو التعريفي</h2>
+      <div class="video-wrapper">
+        <!-- Placeholder video, replace src with your YouTube/Vimeo link -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/gobnH0i1pH0" title="Khalid Podcast Intro" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">شوف الفيديو باش تعرف القصة مباشرة من خالد.</p>
+    </div>
+  </section>
+
+  <!-- Rewards Section -->
+  <section id="rewards" class="section bg-light">
+    <div class="container">
+      <h2>شنو غادي تربح مني مقابل دعمك؟</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>تساهم ب</th>
+              <th>شنو غادي تاخد</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>50 درهم</td>
+              <td>رسالة شكر + اسمك في نهاية الفيديو</td>
+            </tr>
+            <tr>
+              <td>100 درهم</td>
+              <td>كل ما سبق + تشوف الحلقات قبل الجميع</td>
+            </tr>
+            <tr>
+              <td>300 درهم</td>
+              <td>كل ما سبق + جلسة نقاش حصرية مع خالد كل 3 أشهر</td>
+            </tr>
+            <tr>
+              <td>500 درهم</td>
+              <td>كل ما سبق + إهداء خاص في بداية إحدى الحلقات + تذكار رقمي</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contribute Section -->
+  <section id="contribute" class="section">
+    <div class="container contribute-section">
+      <h2>بغيتي تعاوننا؟ ها الطريقة!</h2>
+      <a href="#" class="btn btn-orange btn-lg">ساهم الآن</a>
+      <p class="contribute-caption">كل درهم كتساهم به هو خطوة نحو محتوى واعي ومبسّط… شكراً بزاف!</p>
+      <div class="bank-info" style="background:#fffbe6; border:1px solid #ffd700; padding:1em; margin-top:1em; border-radius:8px;">
+        <h3>معلومات التبرع البنكي (CIH BANK):</h3>
+        <p><strong>الإسم:</strong> KHALID AMGHAYAR</p>
+        <p><strong>RIB:</strong> 230 010 5596936211018900 30</p>
+        <p><strong>IBAN:</strong> MA64 2300 1055 9693 6211 0189 0030</p>
+        <p><strong>SWIFT:</strong> CIHMMAMC</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section bg-light">
+    <div class="container">
+      <h2>الأسئلة اللي كتسولو عليها بزاف:</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <strong>شنو هو Khalid Podcast؟</strong>
+          <p>بودكاست بالدارجة كيشرح مواضيع فكرية ونفسية بطريقة مبسطة.</p>
+        </div>
+        <div class="faq-item">
+          <strong>كيفاش نساهم؟</strong>
+          <p>اضغط على "ساهم الآن" وتبع التعليمات.</p>
+        </div>
+        <div class="faq-item">
+          <strong>واش غادي يبقى المحتوى مجاني؟</strong>
+          <p>نعم، المحتوى غادي يبقى متاح للجميع.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container contact-section">
+      <h2>بغيتي تسول شي حاجة ولا تعطي فكرة؟</h2>
+      <form class="contact-form" action="https://formspree.io/f/xwkgyyqg" method="POST">
+        <input type="text" name="name" placeholder="الاسم" required />
+        <input type="email" name="email" placeholder="الإيميل" required />
+        <textarea name="message" placeholder="الرسالة" required></textarea>
+        <button type="submit" class="btn btn-blue">إرسال</button>
+      </form>
+      <div class="contact-links">
+        <a href="https://wa.me/212691869062" target="_blank">واتساب</a>
+        <a href="https://instagram.com/khalid_amghayar" target="_blank">إنستغرام</a>
+        <a href="mailto:amghayark@gmail.com">البريد الإلكتروني</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Khalid Podcast – خالد بودكاست. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
 </body>
-</html>
+</html> 
